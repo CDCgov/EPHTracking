@@ -1,10 +1,11 @@
 /*===================================================*/
 /*													 */
 /* Title: Emergency Dept data validation checks      */
-/* Author: Mackenzie Malone							 */
+/* Provided by CDC's Environmental Public Health     */
+/* Tracking (EPHT)Program 							 */
 /* Date created: 6/20/2019							 */
-/* Description: Adaption of CDC EPHTN validation     */
-/* scripts for use by recipients prior to submission */
+/* Description: Adaption of CDC EPHT validation		 */
+/* scripts 											 */
 /*													 */
 /*===================================================*/
 
@@ -12,14 +13,13 @@
 * 1. Code is generic and needs to be adapted before use and is 
 	written to validate one health outcome at a time;
 * 2. Variable names assigned in this script are based on the 
-  	most recent data dictionary available on the SharePoint;
-* 3. Refer to Validation framework and documentation for more 
+  	most recent Emergency Department (ED)data dictionary available 
+	on the GitHub repository in the 'Measure Creation' folder;
+* 3. Refer to Validation Protocol and documentation for more 
 	information on validation themes and their applications;
-* 4. Please note the check numbering does not match with Battelle 
-	provided reports;
-* 5. Comments provided throughout the code offer guidance on interpreting 
+* 4. Comments provided throughout the code offer guidance on interpreting 
 	the output;
-* 6. For questions about the provided code or how to use it,
+* 5. For questions about the provided code or how to use it,
 	please contact Tracking Support (nephtrackingsupport@cdc.gov);
 /*******************************************************************/
 

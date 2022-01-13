@@ -1,12 +1,14 @@
 /*===================================================*/
-/*													 */
-/* Title: Sample Archive checks 				     */
-/* Author: Mackenzie Malone							 */
-/* Date created: 6/20/2019							 */
-/* Description: Adaption of CDC EPHTN validation     */
-/* scripts for use by recipients prior to submission */
-/*													 */
+/*						  	     					 */
+/* Title: Hospitalization and ED data archive 		 */
+/* validation checks  								 */ 		
+/* Provided by CDC's Environmental Public Health 	 */
+/* Tracking (EPHT)Program  							 */
+/* Date created: 6/20/2019						  	 */
+/* Description: Adaption of CDC EPHT validation 	 */
+/* scripts											 */
 /*===================================================*/
+
 
 /******************** INSTRUCTIONS FOR USE  ************************/
 * 1. In this code: Sample % difference code and sample box plot 
@@ -16,8 +18,10 @@
 * 3. Some data preparation my need to be done before running the 
 	sample archive codes;
 * 4. Variable names assigned in this script are based on the 
-  	most recent data dictionary available on the SharePoint;
-* 5. Refer to Validation framework and documentation for more 
+  	most recent Hospitalizations and Emergency Department (ED)
+	data dictionaries available on the GitHub repository 
+	in the 'Measure Creation' folder;
+* 5. Refer to Validation Protocol and documentation for more 
 	information on validation themes and their applications;
 * 6. For questions about the provided code or how to use it,
 	please contact Tracking Support (nephtrackingsupport@cdc.gov);
