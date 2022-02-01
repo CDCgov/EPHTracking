@@ -11,8 +11,8 @@
 #
 # 1. Code is generic and needs to be adapted before use and is written
 #    to validate one health out come at a time.
-# 2. Variables names assigned in this script are based on the most recent Emergency
-#     Department (ED) visits data dictionary available in the GitHub repository.
+# 2. Variables names assigned in this script are based on the most recent Hospitalization
+#    data dictionary available in the GitHub repository.
 # 3. Refer to Validation Protocol and documentation for more information
 #    on validation themes and their applications.
 # 4. Comments provided throughout the code offer guidance on
