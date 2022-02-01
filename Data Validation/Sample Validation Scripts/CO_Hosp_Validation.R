@@ -1,9 +1,9 @@
 ###################################################################################################
 #
 # Title: CO Hospitalization Data Validation Checks
-# Author: T.J. Pierce
+# Provided by CDC's Environmental Public Health Tracking (EPHT) Program.
 # Date Created: 2/7/2020
-# Description: Adaption of CDC EPHTN Validation scripts for use by recipients prior to submission.
+# Description: Adaption of CDC EPHT validation.
 #
 ###################################################################################################
 
@@ -11,15 +11,13 @@
 #
 # 1. Code is generic and needs to be adapted before use and is written
 #    to validate one health out come at a time.
-# 2. Variables names assigned in this script are based on the most recent
-#    data dictionary available on the Sharepoint.
-# 3. Refer to Validation framework and documentation for more information
+# 2. Variables names assigned in this script are based on the most recent Emergency
+#     Department (ED) visits data dictionary available in the GitHub repository.
+# 3. Refer to Validation Protocol and documentation for more information
 #    on validation themes and their applications.
-# 4. Please note the check numbering does not match with Battelle
-#    provided reports.
-# 5. Comments provided throughout the code offer guidance on
+# 4. Comments provided throughout the code offer guidance on
 #    interpreting the output.
-# 6. For questions about the provided code or how to use it,
+# 5. For questions about the provided code or how to use it,
 #    please contact Tracking Support (nephtrackingsupport@cdc.gov).
 #
 ###################################################################################################
