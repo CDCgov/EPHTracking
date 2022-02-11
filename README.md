@@ -4,14 +4,12 @@ CDC’s National Environmental Public Health Tracking Program (Tracking Program)
 
 Since the program's inception in 2009, the Tracking Program has established and vetted a variety of methods and tools for dataset creation, validation, and standardization for environmental health surveillance. The documents, code, and resources found in this repository are all a part of the Tracking   Program’s method. The Tracking Program encourages the use, adaptation, and collaboration of these methods by internal and external partners. For questions about anything housed or referenced in this repository please contact ephtrackingsupport@cdc.gov. 
 
-## Related documents
+## Contents of Repository 
 
-* [Open Practices](open_practices.md)
-* [Rules of Behavior](rules_of_behavior.md)
-* [Thanks and Acknowledgements](thanks.md)
-* [Disclaimer](DISCLAIMER.md)
-* [Contribution Notice](CONTRIBUTING.md)
-* [Code of Conduct](code-of-conduct.md)
+* [Data Validation Methods and Code] (https://github.com/CDCgov/EPHTracking/tree/master/Data%20Validation)
+* [Measure Creation Guides and Calculations]
+* [Public Portal Release Notes] 
+
 
 ## Overview
 
