@@ -1,4 +1,4 @@
-# CDC Environmental Public Health Tracking Program
+# CDC Environmental Public Health Tracking Program <img src="CDC_Tracking_Combined.jpg" align="right" height=140/>
 
 CDC’s National Environmental Public Health Tracking Program (Tracking Program) created and maintains the Tracking Network, which brings health and environmental data from national, state, and local sources together in one place. The Tracking Program uses a network of people and information systems to deliver a set of health, exposure, and hazards data, information summaries, and tools to enable the analysis, visualization, and reporting of insights drawn from public health data. The Tracking Network maintains and hosts over 600+ unique data measures that can be accessed through a variety of web-based data visualization tools, including a national data explorer, a public API, and a series of dashboards.
 
