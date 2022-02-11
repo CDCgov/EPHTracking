@@ -1,4 +1,4 @@
-# Data Management and Validation Methods <img src="EPHTracking/Tracking_Graphic.jpg" align="right" height=140/>
+# Data Management and Validation Methods <img src="/CDCgov/EPHTracking/blob/master/Tracking_Graphic.jpg?raw=true">
 
 This folder contains resources and code for the Tracking Program’s data validation process. All data undergo a thorough validation process before being accepted into the Tracking Network. The Tracking Program uses a series of data quality checks to identify potential errors in the raw datasets they receive, including the data submitted to Tracking from state constituents. The validation process primarily looks to identify unusual patterns, missing or excess data, outliers, or other inconsistencies within the dataset that may impact data quality. For further information on the Tracking Network’s validation methods and themes, please see the [Data Validation Protocol](https://github.com/CDCgov/EPHTracking/blob/master/Data%20Validation/TrackingValidationProtocol_2021.pdf) file. 
 
