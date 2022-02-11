@@ -2,7 +2,9 @@
 
 CDC’s National Environmental Public Health Tracking Program (Tracking Program) created and maintains the Tracking Network, which brings health and environmental data from national, state, and local sources together in one place. The Tracking Program uses a network of people and information systems to deliver a set of health, exposure, and hazards data, information summaries, and tools to enable the analysis, visualization, and reporting of insights drawn from public health data. The Tracking Network maintains and hosts over 600+ unique data measures that can be accessed through a variety of web-based data visualization tools, including a national data explorer, a public API, and a series of dashboards.
 
-Since the program's inception in 2009, the Tracking Program has established and vetted a variety of methods and tools for dataset creation, validation, and standardization for environmental health surveillance. The documents, code, and resources found in this repository are all a part of the Tracking   Program’s method. The Tracking Program encourages the use, adaptation, and collaboration of these methods by internal and external partners. For questions about anything housed or referenced in this repository please contact ephtrackingsupport@cdc.gov. 
+Since the program's inception in 2009, the Tracking Program has established and vetted a variety of methods and tools for dataset creation, validation, and standardization for environmental health surveillance. The documents, code, and resources found in this repository are all a part of the Tracking   Program’s method. The Tracking Program encourages the use, adaptation, and collaboration of these methods by internal and external partners. 
+
+**For questions about anything housed or referenced in this repository please contact ephtrackingsupport@cdc.gov.**
 
 ## Contents of Repository 
 
