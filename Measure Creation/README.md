@@ -6,6 +6,8 @@ The mission of the National Environmental Public Health Tracking Program is to p
 
 **Data dictionaries** (DD) contain key attributes, definitions, and valid data fields for the dataset. Appendices are available to provide further information on data characteristics and dataset preparation instructions.  
 
+**Schema Files** contains a data "blueprint" needed for structuring and preparing data in order to submit the data to CDC through the Tracking submission gateway. 
+
  
 
 For questions or suggestions about the Tracking Network’s GitHub repository, please contact trackingsupport@cdc.gov. 
