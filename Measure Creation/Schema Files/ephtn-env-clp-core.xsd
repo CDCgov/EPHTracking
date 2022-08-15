@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" version="4.0">
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-env-core.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+This is the core schema for CLP data submissions.
+</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="bllReportedType">
+		<xsd:annotation>
+			<xsd:documentation>
+			
+			1=Blood Lead Levels ≥5 µg/dL
+			2= Blood Lead Levels ≥10 µg/dL
+			3=All tests
+			
+                Type: integer
+                Domain: 1,2 or 3
+				Blood lead levels reported to states
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[1-3]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="caseProtocolType">
+		<xsd:annotation>
+			<xsd:documentation>
+			1 = ≥5µg/dL
+			2 = ≥10 µg/dL
+			3 = none
+                Type: integer
+                Domain: 1,2 or 3
+				Protocol present for case management and risk assessment follow-up.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[1-3]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="surveillanceType">
+		<xsd:annotation>
+			<xsd:documentation>
+1 = Targeted - Where blood lead screening is conducted on the basis of risk for elevated blood lead in children. For example, the screening of all children covered under state Medicaid Programs.
+
+2 = Universal - Where blood Lead Screening is mandated by State Public Health Law or State Public Health Programs which require the screening of blood lead of ALL children born in that state, regardless of a child’s risk for elevated  blood lead.
+
+
+                Type: integer
+                Domain: 1 or 2
+	Blood lead testing surveillance type
+             </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[1-2]"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+</xsd:schema>

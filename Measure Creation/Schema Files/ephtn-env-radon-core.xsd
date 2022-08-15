@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	blockDefault="#all" version="4.0">
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-env-core.xsd" />
+	<xsd:simpleType name="RadonDataIdentifierType">
+		<xsd:annotation>
+			<xsd:documentation>A unique identifier for each batch of Radon Test
+				Results.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="9" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RadonAddressIdentifierType">
+		<xsd:annotation>
+			<xsd:documentation>this is a unique ID that can be linked to the address 
+			but maintain confidentiality; this number represents an address level 
+			record but it is not the address.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="35" />
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="RadonTestResultIdentifierType">
+		<xsd:annotation>
+			<xsd:documentation>A unique identifier for each lab result, there may
+				be multiple tests per address, this number will be unique for each
+				test</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="20" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="RadonDataSourceNameType">
+		<xsd:annotation>
+			<xsd:documentation>The data source where the test data is retrieved
+				(when pulling from multiple data sources)</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:minLength value="1" />
+			<xsd:maxLength value="25" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- place holder for Measure Value element declaration -->
+
+	<xsd:simpleType name="MeasureUnitNameType">
+		<xsd:annotation>
+			<xsd:documentation>The code that represents the unit for measuring
+				Radon (pCi/L = picocuries per Liter) Note: look for conversion
+				factor for Working Levels in How-To Guide</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="1" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TestMethodTypeCodeType">
+		<xsd:annotation>
+			<xsd:documentation>Identifier of the type or category of method.
+				1 = pre-mitigation;
+				2 = post-mitigation;
+				3 = Not collected;
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[1-3]" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="ReasonForTestType">
+		<xsd:annotation>
+			<xsd:documentation>The reason the radon test is being conducted.
+				1=Real Estate Transaction;
+				2=Homeowner choice (personal knowledge);
+				3=Legal requirement;
+				4=Real estate transaction and legal requirement;
+				5=Response to outreach/promotion
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[1-5]" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="RealEstateTransactionIndicatorType">
+		<xsd:annotation>
+			<xsd:documentation>Indicator of the building being tested for radon
+				due to a Real Estate transaction or not.
+				1=Yes;
+				0=No
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[0-1]" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<!-- <xsd:element name="AddressPostalCode" type="AddressPostalCodeType" 
+		/> <xsd:element name="CensusTract" type="CensusTractType" minOccurs="0" /> 
+		<xsd:element name="LatitudeMeasure" type="LatitudeType" minOccurs="0"> <xsd:annotation> 
+		<xsd:documentation>Latitude in decimal degress </xsd:documentation> </xsd:annotation> 
+		</xsd:element> <xsd:element name="LongitudeMeasure" type="LongitudeType" 
+		minOccurs="0"> <xsd:annotation> <xsd:documentation>Longitude in decimal degrees 
+		</xsd:documentation> </xsd:annotation> </xsd:element> -->
+
+	<xsd:simpleType name="FloorLevelTestedType">
+		<xsd:annotation>
+			<xsd:documentation>
+				The floor level in the building where the Radon
+				test was conducted.
+				B = Basement
+				F1 = 1st floor
+				F2 = 2nd floor
+				F3 = 3rd floor
+				F4 = above the 3rd floor
+				O = Other
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="B" />
+			<xsd:enumeration value="F1" />
+			<xsd:enumeration value="F2" />
+			<xsd:enumeration value="F3" />
+			<xsd:enumeration value="F4" />
+			<xsd:enumeration value="O" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="BuildingPurposeCodeType">
+		<xsd:annotation>
+			<xsd:documentation>
+				The designator that represents the building
+				purpose.
+				R = Residential
+				N = Non-residential
+				C = Community Water Supply
+				D = Daycare center
+				P = Daycare center in public school
+				S = School
+				H= Hospital
+				G = Government
+				building
+				CU = Colleges or Universities
+				U = Unknown
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="R" />
+			<xsd:enumeration value="N" />
+			<xsd:enumeration value="C" />
+			<xsd:enumeration value="D" />
+			<xsd:enumeration value="P" />
+			<xsd:enumeration value="S" />
+			<xsd:enumeration value="H" />
+			<xsd:enumeration value="G" />
+			<xsd:enumeration value="CU" />
+			<xsd:enumeration value="U" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="BuildingTypeCodeType">
+		<xsd:annotation>
+			<xsd:documentation>
+				The designator that represents the Type of the
+				building tested; R1
+				buildings are unattached and R2 buildings are
+				attached.
+				R1A = Mobile home
+				R1B = Single level home
+				R1C = Multi level home
+				R1D = Other
+				R2A = Row house
+				R2B = Town house
+				R2C = Duplex
+				R2D = Apartments and Condominiums
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="R1A" />
+			<xsd:enumeration value="R1B" />
+			<xsd:enumeration value="R1C" />
+			<xsd:enumeration value="R1D" />
+			<xsd:enumeration value="R2A" />
+			<xsd:enumeration value="R2B" />
+			<xsd:enumeration value="R2C" />
+			<xsd:enumeration value="R2D" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="FoundationTypeCodeType">
+		<xsd:annotation>
+			<xsd:documentation>A designator used to uniquely identify the
+				Foundation Type that facility occupies.
+				B = Basement
+				C = Crawlspace
+				K = Skirted in Pier
+				S = Slab-on-grade
+				P = Pier
+				O = Other
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="B" />
+			<xsd:enumeration value="C" />
+			<xsd:enumeration value="K" />
+			<xsd:enumeration value="S" />
+			<xsd:enumeration value="P" />
+			<xsd:enumeration value="O" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="TestDeviceLocationType">
+		<xsd:annotation>
+			<xsd:documentation>Specific room in the house where the Radon test
+				was conducted.
+				MB = Master Bedroom
+				BR = Bedroom
+				FR = Family Room
+				LR = Living Room
+				DR = Dining Room
+				SD = Study/Den
+				BA = Basement
+				O = Other
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="MB" />
+			<xsd:enumeration value="BR" />
+			<xsd:enumeration value="FR" />
+			<xsd:enumeration value="LR" />
+			<xsd:enumeration value="DR" />
+			<xsd:enumeration value="SD" />
+			<xsd:enumeration value="BA" />
+			<xsd:enumeration value="O" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="DeviceTypeNameType">
+		<xsd:annotation>
+			<xsd:documentation>Name of instrument or equipment used for the Radon
+				test.
+				AC = Activated Charcoal Adsorption
+				AT = alpha track
+				ES =
+				Short-term electret
+				EL = Long-term electret
+				CR = continuous radon
+				monitor
+				CW = continuous working level monitor
+				LS = Charcoal Liquid
+				Scintillation
+				WL = Working Level
+				CC = Charcoal Canister
+				GR = Grab Sample Radon
+				GW = Grab Sample  Working Level
+				RP = Radon Progeny
+				Integrated Sampling Unit (RPISU)
+				O= Other
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="AC" />
+			<xsd:enumeration value="AT" />
+			<xsd:enumeration value="ES" />
+			<xsd:enumeration value="EL" />
+			<xsd:enumeration value="CR" />
+			<xsd:enumeration value="CW" />
+			<xsd:enumeration value="LS" />
+			<xsd:enumeration value="WL" />
+			<xsd:enumeration value="CC" />
+			<xsd:enumeration value="GR" />
+			<xsd:enumeration value="GW" />
+			<xsd:enumeration value="RP" />
+			<xsd:enumeration value="O" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="CertifiedContractorIndicatorType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Indicator if the contractor performing the test is certified or not.
+				1=Yes;0=No
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:pattern value="[0-1]" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="not-collected-string">
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="NC" />
+		</xsd:restriction>
+	</xsd:simpleType>
+
+	<xsd:simpleType name="date-or-not-collectedType">
+		<xsd:union memberTypes="NCDMdate not-collected-string" />
+	</xsd:simpleType>
+
+	<xsd:simpleType name="time-or-not-collectedType">
+		<xsd:union memberTypes="xsd:time not-collected-string" />
+	</xsd:simpleType>
+
+</xsd:schema>

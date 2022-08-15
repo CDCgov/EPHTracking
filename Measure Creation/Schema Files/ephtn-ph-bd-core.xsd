@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" version="4.0">
+	<xsd:annotation>
+		<xsd:documentation>
+This data set will be used to calculate the nationally consistent data and measures (5 year rolling prevalence counts and rates) for birth defects for use on the national public portal.      
+      </xsd:documentation>
+	</xsd:annotation>
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-ph-core.xsd"/>
+	<xsd:simpleType name="BirthDefectType">
+		<xsd:annotation>
+			<xsd:documentation>Birth defect category. Please note that these have changed drastically from earlier versions.
+			21 = Anencephaly;
+			22 = Cleft lip with cleft palate;
+			23 = Cleft lip w/o cleft palate;
+			24 = Cleft palate w/o cleft lip;
+			25 = Gastroschisis;
+			26 = Hypoplastic left heart syndrome;
+			27 = Hypospadias;
+			28 = Limb deficiencies combined;
+			29 = Spina bifida (w/o anencephaly);
+			30 = Tetralogy of Fallot;
+			31 = Transposition of the great arteries (vessels);
+			32 = Trisomy 21;			
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="21"/>
+			<xsd:maxInclusive value="32"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="SurveillanceType">
+		<xsd:annotation>
+			<xsd:documentation>State birth defects surveillance system uses only active case finding procedures, only passive reporting, or a combination of active and passive methods.</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="P"/>
+			<xsd:enumeration value="A"/>
+			<xsd:enumeration value="PF"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="AscertainmentType">
+		<xsd:annotation>
+			<xsd:documentation>State birth defects surveillance system routinely ascertains 
+			cases of birth defects among live births only, or also covers other outcomes of pregnancy (fetal deaths and/or terminations).
+			L - live Births only;
+			LF - live births + fetal deaths;
+			LT - live births + pregnancy terminations;
+			LFT - live births + fetal deaths + pregnancy terminations
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="L"/>
+			<xsd:enumeration value="LF"/>
+			<xsd:enumeration value="LT"/>
+			<xsd:enumeration value="LFT"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="CodeSetType">
+		<xsd:annotation>
+			<xsd:documentation>Indicates the standard under which birth defects cases are coded and classified.
+      1=ICD-9-CM;
+      2=ICD-9-CM, CDC Coding based on BPA (British Pediatric Association);
+      3=ICD-10-CM;
+      </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MaternalAgeType">
+		<xsd:annotation>
+			<xsd:documentation>
+        Five year maternal age intervals for which cases and underlying birth populations are counted.
+        NOTE: NS is not allowed here.
+        1 = &lt; 20 years;
+        2 = 20-24 years;
+        3 = 25-29 years;
+        4 = 30-34 years;
+        5 = 35-39 years;
+        6 = &gt;=40 years;
+        9 = Unknown
+        </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+			<xsd:enumeration value="6"/>
+			<xsd:enumeration value="9"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MaternalEthnicityType">
+		<xsd:annotation>
+			<xsd:documentation>Maternal Hispanic ethnicity for which cases and underlying birth populations are counted.
+			H = Hispanic;
+			NH = Non Hispanic;
+			U = Unknown;
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="H"/>
+			<xsd:enumeration value="NH"/>
+			<xsd:enumeration value="U"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="MaternalRaceType">
+		<xsd:annotation>
+			<xsd:documentation>Maternal race group for which cases and underlying birth populations are counted.
+      W, B, O, U, NS
+Note: The code NS is intended to allow the maternal race field to be selectively collapsed, for example, 
+when maternal ethnicity and race are not collected separately. 
+This code is not intended to indicate unknown race.      
+	</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="NCDMstring">
+			<xsd:enumeration value="W"/>
+			<xsd:enumeration value="B"/>
+			<xsd:enumeration value="O"/>
+			<xsd:enumeration value="U"/>
+			<xsd:enumeration value="NS"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	
+<xsd:group name="birthDefectsGroup">
+		<xsd:annotation>
+			<xsd:documentation>
+      This group represents new birth defects specific elements.
+      </xsd:documentation>
+			<xsd:documentation>
+It should be noted that the requested demographic cross-tabulation in this data set is even more detailed than the cross-tabulation proposed for the special Trisomy 21 data set.  However, since the Trisomy 21 data set is at the county level, it would still provide information that the new state-level data set would not.
+          </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation/>
+			</xsd:annotation>
+			<xsd:element name="MaternalAgeGroup" type="MaternalAgeType">
+			<xsd:annotation>
+			<xsd:documentation>Five-year maternal age intervals for which cases and underlying birth populations are counted.</xsd:documentation>
+			</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaternalEthnicity" type="MaternalEthnicityType">
+			<xsd:annotation>
+			<xsd:documentation>Maternal Hispanic ethnicity for which cases and underlying birth populations are counted.</xsd:documentation>
+			</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="MaternalRace" type="MaternalRaceType">
+			<xsd:annotation>
+			<xsd:documentation>Maternal race group for which cases and underlying birth populations are counted.</xsd:documentation>
+			</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="InfantSex" type="InfantSexType">
+			<xsd:annotation>
+			<xsd:documentation>Infant sex for which cases and underlying birth populations are counted.</xsd:documentation>
+			</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>	
+	
+	<xsd:group name="LBFDTWDGroup">
+		<xsd:annotation>
+			<xsd:documentation>
+      This group represents the Total Live Births, Fetal Deaths and Terminations with Defects.
+      </xsd:documentation>
+			<xsd:documentation>The grouping for new consolidated Birth Defect data feed</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:annotation>
+				<xsd:documentation/>
+			</xsd:annotation>
+			<xsd:element name="TLB" type="missingSevenDigitNumberType">
+				<xsd:annotation>
+					<xsd:documentation>Total Live Births; Total number of live births.
+					Note: The missing value code -999 is appropriate when the number of birth defects is known for a demographic classification, but the number of live births is unknown. For example, when you have birth defects but county is unknown.</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LBWBD" type="missingFourDigitNumberType">
+				<xsd:annotation>
+					<xsd:documentation>Live Births With Birth Defect;
+					Number of cases with the specified birth defect that were a live birth.					
+        Note: The missing value code -999 is appropriate when a birth count is known for a demographic classification, but the birth defect count is unknown. For example, when you have live births but county is unknown.
+        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="LBFDTWD" type="missingFourDigitNumberType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>Live Births + Fetal Deaths + Termination With Defect;
+					Number of cases with the specified birth defect that were a live birth, fetal death or pregnancy termination. Only include this variable if your state collects these birth outcomes.
+Note: The missing value code -999 is appropriate when a birth count is known for a demographic classification, but the birth defect count is unknown. For example, when you have live births but county is unknown.        </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:group>
+</xsd:schema>

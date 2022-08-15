@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" version="4.0">
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-ph-core.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+This is the core schema for Emergency Department data submissions.
+</xsd:documentation>
+	</xsd:annotation>
+	<xsd:simpleType name="edRelatedHealthOutcomeIDType">
+		<xsd:annotation>
+			<xsd:documentation>
+                1 represents Asthma
+                3 represents CO Poisoning
+                4 represents Heat related illness
+                5 represents Chronic Obstructive Pulmonary Disease
+		9 represents ICD-10-CM code J44 primary with J45
+		10 represents ICD-10-CM code J44 primary
+                Type: integer
+                Domain: 1,3,4,5,9 or 10
+Health outcome associated with the record (Asthma, CO, Heat or COPD)
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="edVisitYearType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Type: integer
+                Domain: 2000 &lt;= indicator &lt;= 2040 &amp;
+Year of Emergency Department Visit.
+            </xsd:documentation>
+			<xsd:documentation/>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="2000"/>
+			<xsd:maxInclusive value="2040"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:group name="emergencyDepartmentDataCore">
+		<xsd:annotation>
+			<xsd:documentation>
+                Holds all elements that are common to the Emergency Department related data feeds.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgeGroup" type="ageGroupType"/>
+			<xsd:element name="County" type="unknownCountyCodeType"/>
+			<xsd:element name="EdVisitYear" type="edVisitYearType"/>
+			<xsd:element name="EdVisitMonth" type="monthType"/>
+			<xsd:element name="Ethnicity" type="ethnicityType" minOccurs="0"/>
+			<xsd:element name="HealthOutcomeID" type="edRelatedHealthOutcomeIDType"/>
+			<xsd:element name="MonthlyVisits" type="TenPlusTwoDecimalOrIntType">
+				<xsd:annotation>
+					<xsd:documentation>
+                    Number of Monthly Emergency Deparment Visits
+          </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Race" type="raceType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+                Race of individual
+      </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Sex" type="sexType"/>
+			<xsd:group ref="fireAggregates" minOccurs="0"/>
+			<xsd:group ref="nonFireAggregates" minOccurs="0"/>
+			<xsd:group ref="unknownAggregates" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:group name="dailyEDDataCore">
+		<xsd:annotation>
+			<xsd:documentation>
+                Holds all elements that are common to the Daily Emergency Department related data feeds.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgeGroup" type="dailyEDAgeGroupType"/>
+			<xsd:element name="County" type="unknownCountyCodeType"/>
+			<xsd:element name="EdVisitDate" type="dailyEDVisitDateType"/>
+			<xsd:element name="ExclusionMethod" type="exclusionMethodType"/>
+			<xsd:element name="HealthOutcomeID" type="dailyEDRelatedHealthOutcomeIDType"/>
+			<xsd:element name="Visits" type="fiveDigitNonNegativeIntegerType">
+				<xsd:annotation>
+					<xsd:documentation>
+                    Number of Daily Emergency Deparment Visits
+          </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="OutOfStateExclusion" type="outOfStateExclusionType"/>
+			<xsd:element name="Sex" type="sexType"/>
+			<xsd:element name="TransferExclusion" type="transferExclusionType"/>
+		</xsd:sequence>
+	</xsd:group>
+	<xsd:simpleType name="dailyEDRelatedHealthOutcomeIDType">
+		<xsd:annotation>
+			<xsd:documentation>
+                1 represents Asthma
+		5 = COPD
+		6 = Acute respiratory infections
+		7 = Pneumonia
+		8 = All other respiratory outcomes
+                Type: integer
+                Domain: 1,3 or 4
+Health outcome associated with the record (Asthma, CO or Heat)
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="5"/>
+			<xsd:enumeration value="6"/>
+			<xsd:enumeration value="7"/>
+			<xsd:enumeration value="8"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="dailyEDVisitDateType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Type: date (YYYY-MM-DD format)
+                Domain: 2000-01-01 &lt;= indicator &lt;= 2015-12-31 &amp;
+Year of Emergency Department Visit.
+            </xsd:documentation>
+			<xsd:documentation/>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:date">
+			<xsd:minInclusive value="2000-01-01"/>
+			<xsd:maxInclusive value="2015-12-31"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	
+	<xsd:simpleType name="subcountyEDRelatedHealthOutcomeIDType">
+		<xsd:annotation>
+			<xsd:documentation>
+                1 represents Asthma
+                Type: integer
+                Domain: 1
+Health outcome associated with the record (Asthma)
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="1"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+		
+	<xsd:group name="subcountyEmergencyDepartmentDataCore">
+		<xsd:annotation>
+			<xsd:documentation>
+                Holds all elements that are common to the Emergency Department related data feeds.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgeGroup" type="ageGroupType" minOccurs="0"/>			
+			<xsd:element name="CensusTract" type="CensusTractType"/>		
+			<xsd:element name="County" type="unknownCountyCodeType"/>
+			<xsd:element name="EDVisitYear" type="edVisitYearType"/>			
+			<xsd:element name="GeoCodingPrecision" type="GeoCodingPrecisionType"/>
+			<xsd:element name="HealthOutcomeID" type="subcountyEDRelatedHealthOutcomeIDType"/>
+			<xsd:element name="YearlyED" type="sevenDigitNumberType"/>			
+		</xsd:sequence>
+
+	</xsd:group>	
+</xsd:schema>

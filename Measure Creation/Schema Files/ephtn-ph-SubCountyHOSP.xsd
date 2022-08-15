@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ephtn.org/NCDM/PH/SubCountyHOSP" targetNamespace="http://www.ephtn.org/NCDM/PH/SubCountyHOSP" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" version="4.0">
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-ph-hs-core.xsd"/>
+	<xsd:annotation>
+		<xsd:documentation>
+      </xsd:documentation>
+	</xsd:annotation>
+	<xsd:element name="SubCountyHospitalizationData" type="SubCountyHospitalizationDataType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Element: HospitalizationData
+                The root element for the Hospitalization Data feed.
+            </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="SubCountyHospitalizationDataType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Element: SubCountyHospitalizationDataType
+                The type of root element for the SubCountyHospitalization Data feed. It consists
+                of a header element followed by a container to hold the actual data itself.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Header" type="headerType"/>
+			<xsd:element name="Dataset" type="SubCountyHospitalizationDataDatasetType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubCountyHospitalizationDataDatasetType">
+		<xsd:annotation>
+			<xsd:documentation>
+                The container that holds the Hospitalization data rows.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!--  change this to Row -->
+			<xsd:element name="Row" type="SubCountyHospitalizationDataRowType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="SubCountyHospitalizationDataRowType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Row that holds the ephtn core, public core followed by Hospitalization Data specific elements.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:group ref="core"/>
+			<xsd:group ref="subcountyHospitalizationCore"/>
+		</xsd:sequence>
+	</xsd:complexType>
+
+</xsd:schema>
