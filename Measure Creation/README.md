@@ -1,4 +1,4 @@
-# Measure Creation and Calculation  
+# Measure and Dataset Creation 
 
 The mission of the National Environmental Public Health Tracking Program is to provide data from our nationwide network of health and environmental exposure data to drive action that improves the health of communities. The Tracking Network displays data as **nationally consistent data measures (NCDMs)** utilizing the data from our national, state, and local partners. These measures allow users to view and compare the data across years and geographies for environmental health surveillance. The NCDMs are defined and documented by the Tracking Program with the input from the Tracking Program’s Content Workgroup (CWG). These measures are part of the funding requirement for Tracking Program state recipients but can be calculated and implemented by other partner states or programs that are interested in adopting the Tracking Program’s methodology.  
 
