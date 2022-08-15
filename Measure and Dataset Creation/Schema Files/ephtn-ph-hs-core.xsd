@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" version="4.0">
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-ph-core.xsd"/>
+	<xsd:simpleType name="healthOutcomeIDType">
+		<xsd:annotation>
+			<xsd:documentation>
+                1 represents Asthma
+                2 represents Acute Myocardial Infaraction
+                3 represents CO Poisoning
+                4 represents Heat related illness
+                5 represents Chronic Obstructive Pulmonary Disease
+		9 represents ICD-10-CM code J44 primary with J45
+		10 represents ICD-10-CM code J44 primary
+                Type: integer
+                Domain: 1,2,3,4,5,9 or 10
+Health outcome associated with the record (Asthma, MI, CO, Heat or COPD)
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+			<xsd:enumeration value="3"/>
+			<xsd:enumeration value="4"/>
+			<xsd:enumeration value="5"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:simpleType name="admissionYearType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Type: integer
+                Domain: 2000 &lt;= indicator &lt;= 2040 &amp;
+Year of Hospital Admission date.
+            </xsd:documentation>
+			<xsd:documentation/>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:minInclusive value="2000"/>
+			<xsd:maxInclusive value="2040"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+	<xsd:group name="hospitalizationCore">
+		<xsd:annotation>
+			<xsd:documentation>
+                Holds all elements that are common to the Hospitalization Data related data feeds.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AdmissionMonth" type="monthType"/>
+			<xsd:element name="AgeGroup" type="ageGroupType"/>
+			<xsd:element name="County" type="unknownCountyCodeType"/>
+			<xsd:element name="Ethnicity" type="ethnicityType" minOccurs="0"/>
+			<xsd:element name="HealthOutcomeID" type="healthOutcomeIDType"/>
+			<xsd:element name="MonthlyHosp" type="TenPlusTwoDecimalOrIntType">
+				<xsd:annotation>
+					<xsd:documentation>
+                    Number of Monthly Hospitalization Visits
+          </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Race" type="raceType" minOccurs="0">
+				<xsd:annotation>
+					<xsd:documentation>
+                Race of individual
+      </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Sex" type="sexType"/>
+			<xsd:element name="YearAdmitted" type="admissionYearType"/>
+			<xsd:group ref="fireAggregates" minOccurs="0"/>
+			<xsd:group ref="nonFireAggregates" minOccurs="0"/>
+			<xsd:group ref="unknownAggregates" minOccurs="0"/>
+		</xsd:sequence>
+	</xsd:group>
+	
+	<xsd:simpleType name="subcountyHospRelatedHealthOutcomeIDType">
+		<xsd:annotation>
+			<xsd:documentation>
+                1 represents Asthma
+                2 represents Acute Myocardial Infaraction
+                Type: integer
+                Domain: 1,2
+Health outcome associated with the record (Asthma and MI)
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:integer">
+			<xsd:enumeration value="1"/>
+			<xsd:enumeration value="2"/>
+		</xsd:restriction>
+	</xsd:simpleType>
+		
+	<xsd:group name="subcountyHospitalizationCore">
+		<xsd:annotation>
+			<xsd:documentation>
+                Holds all elements that are common to the Hospitalization Data related data feeds.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="AgeGroup" type="ageGroupType" minOccurs="0"/>			
+			<xsd:element name="CensusTract" type="CensusTractType"/>
+			<xsd:element name="County" type="unknownCountyCodeType"/>
+			<xsd:element name="YearAdmitted" type="admissionYearType"/>
+			<xsd:element name="GeoCodingPrecision" type="GeoCodingPrecisionType"/>			
+			<xsd:element name="HealthOutcomeID" type="subcountyHospRelatedHealthOutcomeIDType"/>
+			<xsd:element name="YearlyHosp" type="sevenDigitNumberType">
+				<xsd:annotation>
+					<xsd:documentation>
+                    Number of Annual Hospitalization Visits
+          </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+		</xsd:sequence>
+	</xsd:group>	
+</xsd:schema>

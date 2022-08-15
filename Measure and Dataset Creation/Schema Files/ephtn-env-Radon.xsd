@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.ephtn.org/NCDM/RADON" targetNamespace="http://www.ephtn.org/NCDM/RADON"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	blockDefault="#all" version="4.0">
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-env-radon-core.xsd" />
+	<xsd:element name="Radon" type="RadonType">
+		<xsd:annotation>
+			<xsd:documentation>The root element of the radon data feed
+			</xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="RadonType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Element: RadonType
+				The type of root element for the RadonType feed. It consists
+				of a header element that is defined by EPHTN followed by a container
+				Dataset that is defined by the Radon Working Group at
+				CDC/EPA/Grantees/Labs.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Header" type="headerType" />
+			<xsd:element name="Dataset" type="RadonDatasetType" />
+		</xsd:sequence>
+	</xsd:complexType>
+
+	<xsd:complexType name="RadonDatasetType">
+		<xsd:annotation>
+			<xsd:documentation>
+				The container that holds the Radon data rows.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Row" type="RadonRowType" maxOccurs="unbounded" />
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="RadonRowType">
+		<xsd:annotation>
+			<xsd:documentation>
+				Row that holds the Radon Row Type specific elements. Some of them
+				will point back to the ephtn core or ephtn-env-core or ephtn-env-radon
+				schemas.
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:group ref="core" />
+			<xsd:element name="TestYear" type="yearType"/>
+			<xsd:element name="DataIdentifier" type="RadonDataIdentifierType" minOccurs="0" />
+			<xsd:element name="AddressIdentifier" type="RadonAddressIdentifierType" />
+			<xsd:element name="TestResultIdentifier" type="RadonTestResultIdentifierType" />
+			<xsd:element name="TestStartDate" type="date-or-not-collectedType"/>
+			<xsd:element name="TestStopDate" type="date-or-not-collectedType"/>
+			<xsd:element name="CountyFIPSCode" type="unknownCountyCodeType" />
+			<xsd:element name="DataSourceName" type="RadonDataSourceNameType" />
+			<xsd:element name="MeasureValue" type="LLDFivePlusOneDecimalType" />
+			<xsd:element name="MeasureUnitName" type="MeasureUnitNameType" />
+			<xsd:element name="TestMethodTypeCode" type="TestMethodTypeCodeType" />
+			<xsd:element name="ReasonForTest" type="ReasonForTestType" minOccurs="0" />
+			<xsd:element name="RealEstateTransactionIndicator" type="xsd:boolean" minOccurs="0" />
+			<xsd:element name="AddressPostalCode" type="AddressPostalCodeType" minOccurs="0" />
+			<xsd:element name="CensusTract" type="CensusTractType" minOccurs="0" />
+			<xsd:element name="FloorLevelTested" type="FloorLevelTestedType" minOccurs="0" />
+			<xsd:element name="BuildingPurposeCode" type="BuildingPurposeCodeType" />
+			<xsd:element name="BuildingTypeCode" type="BuildingTypeCodeType" minOccurs="0" />
+			<xsd:element name="FoundationTypeCode" type="FoundationTypeCodeType" minOccurs="0" />
+			<xsd:element name="TestDeviceLocation" type="TestDeviceLocationType" minOccurs="0" />
+			<xsd:element name="DeviceTypeName" type="DeviceTypeNameType" minOccurs="0" />
+			<xsd:element name="CertifiedContractorIndicator" type="xsd:boolean" minOccurs="0" />
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ephtn.org/NCDM/PH/EmergencyDepartmentData" targetNamespace="http://www.ephtn.org/NCDM/PH/EmergencyDepartmentData" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" version="4.0">
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-ph-ed-core.xsd"/>
+	<xsd:element name="EmergencyDepartmentData" type="EmergencyDepartmentDataType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Element: EmergencyDepartmentData
+                The root element for the Emergency Department Data feed.
+            </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="EmergencyDepartmentDataType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Element: EmergencyDepartmentDataType
+                The type of root element for the Emergency Department Data  feed. It consists
+                of a header element followed by a container to hold the actual data itself.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Header" type="headerType"/>
+			<xsd:element name="Dataset" type="EmergencyDepartmentDataDatasetType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmergencyDepartmentDataDatasetType">
+		<xsd:annotation>
+			<xsd:documentation>
+                The container that holds the Emergency Department Data data rows.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<!--  change this to Row -->
+			<xsd:element name="Row" type="EmergencyDepartmentDataRowType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="EmergencyDepartmentDataRowType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Row that holds the ephtn core, public core followed by Emergency Department Data specific elements.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:group ref="core"/>
+			<xsd:group ref="emergencyDepartmentDataCore"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
