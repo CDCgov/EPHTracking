@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ephtn.org/NCDM/ENV/LeadLevelsInWater" targetNamespace="http://www.ephtn.org/NCDM/ENV/LeadLevelsInWater" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" version="4.0">
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-env-water.xsd"/>
+	<xsd:element name="LeadLevelsInWater" type="LeadLevelsInWaterType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Element: LeadLevelsInWater
+                The root element for the Drinking Water - Quality Sampling results
+            </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="LeadLevelsInWaterType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Element: LeadLevelsInWaterType
+                The type of root element for the Drinking Water - LeadLevelsInWater (WQL-PB?) feed. It consists
+                of a header element followed by a container to hold the actual data itself.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Header" type="headerType"/>
+			<xsd:element name="Dataset" type="LeadLevelsInWaterDatasetType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LeadLevelsInWaterDatasetType">
+		<xsd:annotation>
+			<xsd:documentation>
+                The container that holds the Drinking Water Quality - LeadLevelsInWater data rows.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Row" type="LeadLevelsInWaterRowType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="LeadLevelsInWaterRowType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Row that holds the Drinking Water - LeadLevelsInWater Row Type specific elements. Some of them
+                will point back to the ephtn core or ephtn-env-core or ephtn-env-water schemas.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:group ref="core"/>
+			<xsd:element name="PWSIDNumber" type="PWSNumberType">
+				<xsd:annotation>
+					<xsd:documentation>PWS identifier
+				  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Year" type="yearType">
+				<xsd:annotation>
+					<xsd:documentation>Year
+				  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AnalyteCode" type="LeadAnalyteCodeType">
+				<xsd:annotation>
+					<xsd:documentation>USEPA Analyte code for Lead.
+				  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="ConcentrationUnits" type="LeadConcentrationUnitsType">
+				<xsd:annotation>
+					<xsd:documentation>The analyte specific units of summary level measures and individual
+					sample values as reported in the Concentration and DetectionLimit fields. Each analyte has 
+					a standard unit for this dataset.
+				  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="Concentration" type="missingSixPlusTwoDecimalType">
+				<xsd:annotation>
+					<xsd:documentation>Reported summary-level concentration or reported concentration of sample
+				  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>			
+			<xsd:element name="DateSampled" type="dateRangeType">
+				<xsd:annotation>
+					<xsd:documentation>date for sample level data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="AggregationType" type="LeadAggregationType">
+				<xsd:annotation>
+					<xsd:documentation>Type of Summary operation performed (ie mean or max) for summary-level data</xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="SummaryTimePeriod" type="yearType">
+				<xsd:annotation>
+					<xsd:documentation>year for summary level data
+      </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+			<xsd:element name="NumSamples" type="nsFourDigitNumberType">
+				<xsd:annotation>
+					<xsd:documentation>The number of samples that were used in calculating mean/max
+					for a given analyte during a year. 
+				  </xsd:documentation>
+				</xsd:annotation>
+			</xsd:element>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:simpleType name="LeadAnalyteCodeType">
+		<xsd:annotation>
+			<xsd:documentation>USEPA Analyte code for required constituents (lead (Pb))</xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:enumeration value="1030"/>
+			<xsd:enumeration value="PB90"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+	<xsd:simpleType name="LeadConcentrationUnitsType">
+		<xsd:annotation>
+			<xsd:documentation/>
+		</xsd:annotation>
+		<xsd:restriction base="ConcentrationUnitsType">
+			<xsd:enumeration value="ug/L"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+	<xsd:simpleType name="LeadAggregationType">
+		<xsd:annotation>
+			<xsd:documentation/>
+		</xsd:annotation>
+		<xsd:restriction base="AggregationType">
+			<!-- Annual 90th percentile. Currently used for Lead -->
+			<xsd:enumeration value="90X"/>
+		</xsd:restriction>
+	</xsd:simpleType>	
+</xsd:schema>

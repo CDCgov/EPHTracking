@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.ephtn.org/NCDM/PH/DailyEDData" targetNamespace="http://www.ephtn.org/NCDM/PH/DailyEDData" elementFormDefault="qualified" attributeFormDefault="unqualified" blockDefault="#all" version="4.0">
+	<xsd:include schemaLocation="https://www.cdc.gov/nceh/tracking/schemas/ephtn-ph-ed-core.xsd"/>
+	<xsd:element name="DailyEDData" type="DailyEDDataType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Element: DailyEDData
+                The root element for the Daily Emergency Department Data feed.
+            </xsd:documentation>
+		</xsd:annotation>
+	</xsd:element>
+	<xsd:complexType name="DailyEDDataType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Element: DailyEDDataType
+                The type of root element for the Daily Emergency Department Data  feed. It consists
+                of a header element followed by a container to hold the actual data itself.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Header" type="headerType"/>
+			<xsd:element name="Dataset" type="DailyEDDataDatasetType"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DailyEDDataDatasetType">
+		<xsd:annotation>
+			<xsd:documentation>
+                The container that holds the Daily Emergency Department Data data rows.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:element name="Row" type="DailyEDDataRowType" maxOccurs="unbounded"/>
+		</xsd:sequence>
+	</xsd:complexType>
+	<xsd:complexType name="DailyEDDataRowType">
+		<xsd:annotation>
+			<xsd:documentation>
+                Row that holds the ephtn core, public core followed by Daily Emergency Department Data specific elements.
+            </xsd:documentation>
+		</xsd:annotation>
+		<xsd:sequence>
+			<xsd:group ref="core"/>
+			<xsd:group ref="dailyEDDataCore"/>
+		</xsd:sequence>
+	</xsd:complexType>
+</xsd:schema>
