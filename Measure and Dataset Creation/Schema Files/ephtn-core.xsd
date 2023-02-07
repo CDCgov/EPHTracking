@@ -250,6 +250,7 @@
 			<xsd:enumeration value="CLP4"/>
 			<xsd:enumeration value="PWSINVENTORY"/>
 			<xsd:enumeration value="WQL"/>
+			<xsd:enumeration value="WQL-PB"/>			
 			<xsd:enumeration value="AS-HOSP"/>
 			<xsd:enumeration value="AS-ED"/>
 			<xsd:enumeration value="COPD-HOSP"/>

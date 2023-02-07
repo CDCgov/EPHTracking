@@ -22,7 +22,7 @@
             </xsd:documentation>
 		</xsd:annotation>
 		<xsd:sequence>
-			<xsd:element name="Header" type="headerType"/>
+			<xsd:element name="Header" type="headerType"/>			
 			<xsd:element name="Dataset" type="SubCountyEmergencyDepartmentDataDatasetType"/>
 		</xsd:sequence>
 	</xsd:complexType>

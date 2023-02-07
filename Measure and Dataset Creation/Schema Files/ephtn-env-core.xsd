@@ -46,6 +46,8 @@
 			<xsd:pattern value="[0-9]{1,6}|-999|-888"/>
 		</xsd:restriction>
 	</xsd:simpleType>
+
+	
 <!--
 	<xsd:simpleType name="missingNSSevenDigitNumberType">
 		<xsd:annotation>
@@ -232,6 +234,8 @@ Flag to indicate whether sample resulted in a detected or not. 1 is a non-detect
 		<xsd:restriction base="xsd:string">
 			<xsd:enumeration value="X"/>
 			<xsd:enumeration value="MX"/>
+			<!-- Annual 90th percentile. Currently used for Lead -->
+			<xsd:enumeration value="90X"/>
 			<!-- 
 			<xsd:enumeration value="P25"/>
 			<xsd:enumeration value="P75"/>
@@ -269,5 +273,14 @@ Flag to indicate whether sample resulted in a detected or not. 1 is a non-detect
 			<xsd:pattern value="[0-9]{1,6}\.[0-9]{4}|-[8]{3}"/>
 		</xsd:restriction>
 	</xsd:simpleType>
-
+<xsd:simpleType name="missingSixPlusTwoDecimalType">
+		<xsd:annotation>
+			<xsd:documentation>
+     Used in water content area only.
+      </xsd:documentation>
+		</xsd:annotation>
+		<xsd:restriction base="xsd:string">
+			<xsd:pattern value="[0-9]{1,6}\.[0-9]{2}"/>
+		</xsd:restriction>
+	</xsd:simpleType>
 </xsd:schema>
