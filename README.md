@@ -11,6 +11,7 @@ Since the program's inception in 2009, the Tracking Program has established and 
 * [Data Validation Methods and Code](https://github.com/CDCgov/EPHTracking/tree/master/Data%20Validation)
 * [Measure Creation Guides and Calculations](https://github.com/CDCgov/EPHTracking/tree/master/Measure%20and%20Dataset%20Creation)
 * [Public Portal Release Notes](https://github.com/CDCgov/EPHTracking/releases)
+* [General Tracking data methods and code examples](https://github.com/CDCgov/EPHTracking/tree/master/Tracking%20Data%20Methods)
 
 
 ## Resources
