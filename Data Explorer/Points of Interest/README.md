@@ -44,7 +44,7 @@ Stream Gauges (NOAA) - Real-time stream and river gauges [QUERY ↗](https://ser
 
 Superfund Sites - EPA-designated hazardous waste cleanup sites [QUERY ↗](https://geodata.epa.gov/arcgis/rest/services/OEI/FRS_INTERESTS/MapServer/22/query) [INFO ↗](https://www.epa.gov/frs/frs-description)
 
-Tribal Areas - American Indian, Alaska Native, and Native Hawaiian areas [QUERY ↗](https://services2.arcgis.com/FiaPA4ga0iQKduv3/ArcGIS/rest/services/AIANNHA_v1/FeatureServer/0/query) [INFO ↗]https://www.conservation.gov/datasets/245ffcb63a0b44cb9ed467bbd5f9d7ea_0/about)
+Tribal Areas - American Indian, Alaska Native, and Native Hawaiian areas [QUERY ↗](https://services2.arcgis.com/FiaPA4ga0iQKduv3/ArcGIS/rest/services/AIANNHA_v1/FeatureServer/0/query) [INFO ↗](https://www.conservation.gov/datasets/245ffcb63a0b44cb9ed467bbd5f9d7ea_0/about)
 
 Wastewater Treatment Plants - Wastewater treatment facilities [QUERY ↗](https://services.arcgis.com/cJ9YHowT8TU7DUyn/arcgis/rest/services/FRS_Wastewater/FeatureServer/0/query) [INFO ↗](https://www.epa.gov/frs/frs-description)
 
