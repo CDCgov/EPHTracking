@@ -12,7 +12,7 @@ The following POI datasets are available for use within the EPHTN Data Explorer:
 
 Buoy Stations (NOAA) - NOAA ocean buoys that monitor weather and sea conditions [QUERY ↗](https://gis.ncdc.noaa.gov/arcgis/rest/services/ms/NDBCBuoys/MapServer/0/query?where=1%3D1&outFields=*&f=json&resultRecordCount=10) [INFO ↗](https://www.ndbc.noaa.gov/)
 
-Colleges and Universities - Higher-education campuses across the United States [QUERY ↗](https://carto.nationalmap.gov/arcgis/rest/services/structures/MapServer/21) [INFO ↗](https://www.usgs.gov/core-science-systems/ngp/tnm-corps/college-university)
+Colleges and Universities - Higher-education campuses across the United States [QUERY ↗](https://carto.nationalmap.gov/arcgis/rest/services/structures/MapServer/21/) [INFO ↗](https://www.usgs.gov/core-science-systems/ngp/tnm-corps/college-university)
 
 Fire and EMS Stations - Fire stations and emergency medical service facilities [QUERY ↗](https://carto.nationalmap.gov/arcgis/rest/services/structures/MapServer/51/query) [INFO ↗](https://www.usgs.gov/core-science-systems/ngp/tnm-corps/fire-ems-station)
 
