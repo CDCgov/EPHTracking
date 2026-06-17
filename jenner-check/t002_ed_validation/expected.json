@@ -1,0 +1,17 @@
+{
+  "_captured_at": "2026-06-17T13:05:00Z",
+  "_captured_from": "https://api.jenneranalytics.com/v1/run",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Wrote Validation (20 rows, 8 columns).",
+    "NOTE: PROC CONTENTS completed: 20 observations, 8 variables",
+    "NOTE: Output dataset ed_dup has 19 observations and 9 variables.",
+    "NOTE: Macro variable NOBS = 19"
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {
+    "parse_warnings": [],
+    "runtime_warnings": []
+  }
+}

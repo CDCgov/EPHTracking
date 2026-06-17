@@ -1,0 +1,8 @@
+{
+  "bundle": "t001_aar_age_adjusted_rate",
+  "source_file": "Tracking Data Methods/AAR Example SAS Code.sas",
+  "source_blob_sha": "ee2a9d63754e75b60639d6ac0d23a958ca95c938",
+  "source_commit": "bd11595c0ed71f849d1ea5d98c7dcde5f530175e",
+  "tier": "mock_data",
+  "notes": "CDC EPHT age-adjusted rate calculation: SORT + PROC MEANS sum on count and population data, MERGE by county/state/age/year, 2000 standard population age weights, crude rate (n_count/n_pop*10000) and weighted rate, final PROC MEANS sum producing the county/state/year AAR. STEP 1 OLEDB import replaced by structurally faithful Count_Data + Population_Data in autoexec (5-yr age bands 1-18, 2 counties, 2 years); &events macro defined. STEPs 2-7 unchanged from source."
+}

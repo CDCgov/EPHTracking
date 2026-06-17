@@ -1,0 +1,18 @@
+{
+  "_captured_at": "2026-06-17T12:50:00Z",
+  "_captured_run_id": "r_019ed5a2502873539f0462985bf4b908",
+  "_captured_from": "https://api.jenneranalytics.com/v1/run",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Wrote Count_Data (20 rows, 5 columns).",
+    "NOTE: Wrote full (20 rows, 6 columns).",
+    "NOTE: Wrote aar_nat (20 rows, 8 columns).",
+    "NOTE: Output dataset AAR has 4 observations and 4 variables."
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": {
+    "parse_warnings": [],
+    "runtime_warnings": []
+  }
+}

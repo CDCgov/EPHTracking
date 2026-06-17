@@ -1,0 +1,13 @@
+{
+  "_captured_at": "2026-06-17T13:08:00Z",
+  "_captured_from": "https://api.jenneranalytics.com/v1/run",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Output dataset ed_dup has 16 observations and 9 variables.",
+    "NOTE: Output dataset sum_by_sex has 4 observations and 7 variables.",
+    "NOTE: Output dataset sum_by_age has 4 observations and 7 variables."
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": { "parse_warnings": [], "runtime_warnings": [] }
+}

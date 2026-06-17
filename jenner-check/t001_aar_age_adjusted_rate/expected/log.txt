@@ -1,0 +1,68 @@
+Jenner 0.1.0 (Unlicensed - limited to 100 observations)
+Get a license at https://jenneranalytics.com/license
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA Count_Data
+
+NOTE: Processing inline DATALINES (20 lines)
+
+NOTE: Read 20 rows from DATALINES.
+NOTE: Wrote Count_Data (20 rows, 5 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA Population_Data
+
+NOTE: Processing inline DATALINES (20 lines)
+
+NOTE: Read 20 rows from DATALINES.
+NOTE: Wrote Population_Data (20 rows, 5 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC SORT data=Count_data
+
+NOTE: Unlicensed mode - input limited to 100 observations.
+NOTE: Read 20 rows from Count_data.
+NOTE: Wrote Count_data (20 rows, 5 columns).
+NOTE: PROC SORT statement used.
+NOTE: PROC MEANS
+NOTE: Output dataset Count_sum has 20 observations and 5 variables.
+NOTE: PROC MEANS statement used.
+NOTE: PROC SORT data=Population_data
+
+NOTE: Unlicensed mode - input limited to 100 observations.
+NOTE: Read 20 rows from Population_data.
+NOTE: Wrote Population_data (20 rows, 5 columns).
+NOTE: PROC SORT statement used.
+NOTE: PROC MEANS
+NOTE: Output dataset population_sum has 20 observations and 5 variables.
+NOTE: PROC MEANS statement used.
+NOTE: DATA full
+
+NOTE: Stream 1 processed 20 rows, max BY-group size: 1 (O(1) memory verified)
+NOTE: Stream 2 processed 20 rows, max BY-group size: 1 (O(1) memory verified)
+
+NOTE: Wrote full (20 rows, 6 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA aar_nat
+
+
+NOTE: Read 20 rows from full.
+NOTE: Wrote aar_nat (20 rows, 8 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: DATA rate
+
+
+NOTE: Read 20 rows from AAR_nat.
+NOTE: Wrote rate (20 rows, 10 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC MEANS
+NOTE: Output dataset AAR has 4 observations and 4 variables.
+NOTE: PROC MEANS statement used.

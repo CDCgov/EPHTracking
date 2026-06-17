@@ -1,0 +1,8 @@
+{
+  "bundle": "t002_ed_validation",
+  "source_file": "Data Validation/Sample Validation Scripts/ED_Validation.sas",
+  "source_blob_sha": "3f3cc3afe70d0aa334624f00d7b940e8c8fa9931",
+  "source_commit": "bd11595c0ed71f849d1ea5d98c7dcde5f530175e",
+  "tier": "mock_data",
+  "notes": "CDC EPHT Emergency Department data validation: 14 gateway checks (PROC FORMAT value formats, PROC CONTENTS schema, PROC FREQ crosstabs + duplicate detection via /noprint out=, MOD even/odd pattern check, PROC SQL record/count aggregations, PROC TABULATE class/var summaries). STEP 2 OLEDB import replaced by a 20-row Validation dataset matching the ED data dictionary (HealthOutcomeID/State/County/EDVisitYear/EDVisitMonth/AgeGroup/Sex/MonthlyVisits) with one planted duplicate row so Check 3 surfaces it (NOBS=19). StateName/FolderLocation macros set to local values, ODS PDF target made relative. One PROC SQL terminator 'run; quit;' changed to 'quit;' (the no-op RUN before QUIT); validation logic otherwise unchanged from source."
+}

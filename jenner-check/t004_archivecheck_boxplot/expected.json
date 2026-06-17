@@ -1,0 +1,14 @@
+{
+  "_captured_at": "2026-06-17T13:11:00Z",
+  "_captured_from": "https://api.jenneranalytics.com/v1/run",
+  "status": "ok",
+  "exit_code": 0,
+  "log_contains": [
+    "NOTE: Wrote Full_Data (8 rows, 3 columns).",
+    "NOTE: PROC SGPLOT data=Full_Data",
+    "NOTE: Wrote Merge_pop (8 rows, 4 columns).",
+    "NOTE: PROC SGPLOT data=Rate_Data"
+  ],
+  "log_does_not_contain": ["ERROR:", "[JENNER-ERROR"],
+  "diagnostics": { "parse_warnings": [], "runtime_warnings": [] }
+}
