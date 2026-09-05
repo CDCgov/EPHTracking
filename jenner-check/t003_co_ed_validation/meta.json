@@ -1,0 +1,8 @@
+{
+  "bundle": "t003_co_ed_validation",
+  "source_file": "Data Validation/Sample Validation Scripts/CO_ED_Validation.sas",
+  "source_blob_sha": "de0b1a65cce71800fde3d359420fe21bccf3ed2d",
+  "source_commit": "bd11595c0ed71f849d1ea5d98c7dcde5f530175e",
+  "tier": "mock_data",
+  "notes": "CDC EPHT carbon-monoxide ED validation: adds CO cause structure (IncidentCountFire/NonFire/Unknown) on top of the gateway checks, plus PROC SORT + PROC MEANS BY-group OUTPUT summarization into sum_by_sex and sum_by_age. STEP 2 OLEDB import replaced by a 16-row Validation dataset matching the CO ED data dictionary. Macros/ODS PDF target set to local values. Check 12 table statement referenced 'MonthlyHosp' in the source (a copy-paste carryover from the Hospitalization script; ED data carries MonthlyVisits) -- corrected to MonthlyVisits so the author's intended cause/visit summary runs. PROC SQL terminators normalized to quit; logic otherwise unchanged from source."
+}

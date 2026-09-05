@@ -1,0 +1,85 @@
+Jenner 0.1.0 (Unlicensed - limited to 100 observations)
+Get a license at https://jenneranalytics.com/license
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA Validation
+
+NOTE: Processing inline DATALINES (20 lines)
+
+NOTE: Read 20 rows from DATALINES.
+NOTE: Wrote Validation (20 rows, 8 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC FORMAT library=WORK
+
+NOTE: FORMAT AGEGROUP defined (19 ranges).
+NOTE: FORMAT OUTCOME defined (5 ranges).
+NOTE: PROC CONTENTS data=Validation
+
+NOTE: PROC CONTENTS completed: 20 observations, 8 variables
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_healthoutcomeid.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: PROC FREQ
+NOTE: Output dataset ed_dup has 19 observations and 9 variables.
+NOTE: ODS plot written: freq_mosaic_state_healthoutcomeid.spec.json
+NOTE: ODS plot written: freq_mosaic_healthoutcomeid_county.spec.json
+NOTE: ODS plot written: freq_mosaic_county_edvisityear.spec.json
+NOTE: ODS plot written: freq_mosaic_edvisityear_edvisitmonth.spec.json
+NOTE: ODS plot written: freq_mosaic_edvisitmonth_agegroup.spec.json
+NOTE: ODS plot written: freq_mosaic_agegroup_sex.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: PROC SQL 
+
+NOTE: Macro variable NOBS = 19
+NOTE: PROC SQL statement used.
+19
+NOTE: Option TITLE changed to Check 3. Duplicates.
+NOTE: PROC PRINT data=ed_dup
+
+NOTE: PROC PRINT completed: 1 observations printed, 8 variables
+NOTE: DATA even
+
+
+NOTE: Read 20 rows from Validation.
+NOTE: Wrote even (20 rows, 9 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_even.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: Option TITLE changed to Check 5. Records per year of data.
+NOTE: PROC SQL 
+
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to  Check 6. Number of unique counties per year.
+NOTE: PROC SQL 
+
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to Check 7. Number of records by county.
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_mosaic_county_edvisityear.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: Option TITLE changed to Check 8. Variable Level Frequency - Age Groups.
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_mosaic_agegroup_edvisityear.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: Option TITLE changed to Check 9. Variable Level Frequency - Gender.
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_mosaic_sex_edvisityear.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: Option TITLE changed to Check 10. Sum of ED Visits by Year.
+NOTE: PROC SQL 
+
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to Check 11. Sum of ED Visits by County and Year.
+NOTE: PROC TABULATE
+NOTE: Option TITLE changed to Check 12. Sum of ED Visits by County/Month/Year.
+NOTE: PROC TABULATE
+NOTE: Option TITLE changed to Check 13. Sum of ED Visits by Age Group/Year.
+NOTE: PROC TABULATE
+NOTE: Option TITLE changed to Check 14. Sum of ED Visits by Sex/Year.
+NOTE: PROC TABULATE
+NOTE: ODS PDF: wrote report to /tmp/work/Arizona_Asthma_ED_Fall2019.pdf.

@@ -1,0 +1,193 @@
+                                         Check 1. Valid variables/schema match                                          
+
+
+PROC CONTENTS
+-------------------------------------------------------------------------------
+
+Data Set Name: Validation
+Observations:  20
+Variables:     8
+
+Variables (in alphabetical order):
+
+  #  Variable         Type    Len  Format  Label
+---  ---------------  ----  -----  ------  -----
+  1  AgeGroup          Num      8          
+  2  County           Char     20          
+  3  EDVisitMonth      Num      8          
+  4  EDVisitYear       Num      8          
+  5  HealthOutcomeID   Num      8          
+  6  MonthlyVisits     Num      8          
+  7  Sex              Char      1          
+  8  State            Char      2          
+
+-------------------------------------------------------------------------------
+
+                                               Check 2. Health Outcome ID                                               
+
+                                                   The FREQ Procedure
+
+                                             Cumulative    Cumulative
+HealthOutcomeID    Frequency    Percent     Frequency      Percent
+------------------------------------------------------------------------
+1                         20    100.00           20       100.00
+                                               Check 2. Health Outcome ID                                               
+
+                                               Check 2. Health Outcome ID                                               
+
+                                                  Check 3. Duplicates                                                   
+
+
+  Obs  STATE  HEALTHOUTCOMEID  COUNTY  EDVISITYEAR  EDVISITMONTH  AGEGROUP  SEX  COUNT
+-----  -----  ---------------  ------  -----------  ------------  --------  ---  -----
+    1  AZ                   1  Pima           2019             2         5  M        2
+
+                                                Check 4. Even/Odd Counts                                                
+
+                                                   The FREQ Procedure
+
+                                  Cumulative    Cumulative
+even    Frequency    Percent     Frequency      Percent
+-------------------------------------------------------------
+0               9     45.00            9        45.00
+1              11     55.00           20       100.00
+                                           Check 5. Records per year of data                                            
+
+EDVisitYear  Records
+-----------  -------
+     2018.0       10
+     2019.0       10
+                                       Check 6. Number of unique counties per year                                      
+
+EDVisitYear  Counties
+-----------  --------
+     2018.0         2
+     2019.0         2
+                                          Check 7. Number of records by county                                          
+
+                                                   The FREQ Procedure
+
+Table of County by EDVisitYear
+
+County   |      2018 |      2019 |      Total
+---------+-----------+-----------+-----------
+Maricopa |         6 |         4 |         10
+---------+-----------+-----------+-----------
+Pima     |         4 |         6 |         10
+---------+-----------+-----------+-----------
+Total    |        10 |        10 |         20
+
+                                     Check 8. Variable Level Frequency - Age Groups                                     
+
+                                                   The FREQ Procedure
+
+Table of AgeGroup by EDVisitYear
+
+AgeGroup |      2018 |      2019 |      Total
+---------+-----------+-----------+-----------
+4        |         4 |         4 |          8
+---------+-----------+-----------+-----------
+5        |         4 |         5 |          9
+---------+-----------+-----------+-----------
+9        |         2 |         1 |          3
+---------+-----------+-----------+-----------
+Total    |        10 |        10 |         20
+
+                                       Check 9. Variable Level Frequency - Gender                                       
+
+                                                   The FREQ Procedure
+
+Table of Sex by EDVisitYear
+
+Sex |      2018 |      2019 |      Total
+----+-----------+-----------+-----------
+F   |         5 |         5 |         10
+----+-----------+-----------+-----------
+M   |         5 |         5 |         10
+----+-----------+-----------+-----------
+Total |        10 |        10 |         20
+
+                                           Check 10. Sum of ED Visits by Year                                           
+
+EDVisitYear  Visits
+-----------  ------
+     2018.0   820.0
+     2019.0   805.0
+                                     Check 11. Sum of ED Visits by County and Year                                      
+
+--------------------------------------
+|                    | MonthlyVisits |
+|                    |---------------|
+|                    |      Sum      |
+|--------------------+---------------|
+|EDVisitYear|County  |               |
+|-----------+--------|               |
+|2018       |Maricopa|            582|
+|           |--------+---------------|
+|           |Pima    |            238|
+|-----------+--------+---------------|
+|2019       |Maricopa|            468|
+|           |--------+---------------|
+|           |Pima    |            337|
+--------------------------------------
+
+                                    Check 12. Sum of ED Visits by County/Month/Year                                     
+
+----------------------------------------------------------------
+|        |                     EDVisitYear                     |
+|        |-----------------------------------------------------|
+|        |           2018           |           2019           |
+|        |--------------------------+--------------------------|
+|        |       EDVisitMonth       |       EDVisitMonth       |
+|        |--------------------------+--------------------------|
+|        |   1    |   2    |   3    |   1    |   2    |   3    |
+|        |--------+--------+--------+--------+--------+--------|
+|        | Visits | Visits | Visits | Visits | Visits | Visits |
+|        |--------+--------+--------+--------+--------+--------|
+|        |  Sum   |  Sum   |  Sum   |  Sum   |  Sum   |  Sum   |
+|--------+--------+--------+--------+--------+--------+--------|
+|County  |        |        |        |        |        |        |
+|--------|        |        |        |        |        |        |
+|Maricopa|     260|     184|     138|     275|     193|       .|
+|--------+--------+--------+--------+--------+--------+--------|
+|Pima    |     134|     104|       .|     142|     162|      33|
+----------------------------------------------------------------
+
+                                      Check 13. Sum of ED Visits by Age Group/Year                                      
+
+-------------------------------
+|           |   EDVisitYear   |
+|           |-----------------|
+|           |  2018  |  2019  |
+|           |--------+--------|
+|           | Visits | Visits |
+|           |--------+--------|
+|           |  Sum   |  Sum   |
+|-----------+--------+--------|
+|AgeGroup   |        |        |
+|-----------|        |        |
+|15-19 Years|     394|     417|
+|-----------+--------+--------|
+|20-24 Years|     288|     355|
+|-----------+--------+--------|
+|40-44 Years|     138|      33|
+-------------------------------
+
+                                         Check 14. Sum of ED Visits by Sex/Year                                         
+
+--------------------------------------
+|                    | MonthlyVisits |
+|                    |---------------|
+|                    |      Sum      |
+|--------------------+---------------|
+|EDVisitYear|Sex     |               |
+|-----------+--------|               |
+|2018       |F       |            433|
+|           |--------+---------------|
+|           |M       |            387|
+|-----------+--------+---------------|
+|2019       |F       |            422|
+|           |--------+---------------|
+|           |M       |            383|
+--------------------------------------
+

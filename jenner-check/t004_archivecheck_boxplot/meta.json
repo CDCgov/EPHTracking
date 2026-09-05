@@ -1,0 +1,8 @@
+{
+  "bundle": "t004_archivecheck_boxplot",
+  "source_file": "Data Validation/Sample Validation Scripts/ArchiveCheck_Examples.sas",
+  "source_blob_sha": "06209562efb90fc78a9b7471f34eafd4cf62bcf9",
+  "source_commit": "bd11595c0ed71f849d1ea5d98c7dcde5f530175e",
+  "tier": "mock_data",
+  "notes": "CDC EPHT new-vs-archive comparison (STEPs 4-9): PROC SORT + PROC MEANS sum on the new year and the archive years, SET to combine, PROC SGPLOT hbox box plot of events by year, MERGE with summed population, crude rate (n_visits/total_pop*10000), and a second SGPLOT hbox of crude rate by year. Three OLEDB imports replaced by New_Data/Archive_Data/Pop_Data in autoexec following the Hospitalization data dictionary. Corrected source misspellings Couty->County and Pop_data->Pop_Data (clear typos), and defined &Outcome/&State macros so the box-plot titles render (source titles referenced &outcome./&state. which did not match its own %let HealthOutcome/%let StateName). Box-plot/rate logic unchanged. STEPs 10-13 (percent-difference) omitted from this bundle. Produces sgplot.svg/png, sgplot1.svg/png and the ODS PDF."
+}

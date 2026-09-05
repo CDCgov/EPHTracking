@@ -1,0 +1,107 @@
+Jenner 0.1.0 (Unlicensed - limited to 100 observations)
+Get a license at https://jenneranalytics.com/license
+
+NOTE: Option OBS changed to 100.
+NOTE: DATA Validation
+
+NOTE: Processing inline DATALINES (16 lines)
+
+NOTE: Read 16 rows from DATALINES.
+NOTE: Wrote Validation (16 rows, 11 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC FORMAT library=WORK
+
+NOTE: FORMAT AGEGROUP defined (19 ranges).
+NOTE: FORMAT OUTCOME defined (5 ranges).
+NOTE: PROC CONTENTS data=Validation
+
+NOTE: PROC CONTENTS completed: 16 observations, 11 variables
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_healthoutcomeid.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: PROC FREQ
+NOTE: Output dataset ed_dup has 16 observations and 9 variables.
+NOTE: ODS plot written: freq_mosaic_state_healthoutcomeid.spec.json
+NOTE: ODS plot written: freq_mosaic_healthoutcomeid_county.spec.json
+NOTE: ODS plot written: freq_mosaic_county_edvisityear.spec.json
+NOTE: ODS plot written: freq_mosaic_edvisityear_edvisitmonth.spec.json
+NOTE: ODS plot written: freq_mosaic_edvisitmonth_agegroup.spec.json
+NOTE: ODS plot written: freq_mosaic_agegroup_sex.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: PROC SQL 
+
+NOTE: Macro variable NOBS = 16
+NOTE: PROC SQL statement used.
+16
+NOTE: Option TITLE changed to Check 3. Duplicates.
+NOTE: PROC PRINT data=ed_dup
+
+NOTE: DATA even
+
+
+NOTE: Read 16 rows from Validation.
+NOTE: Wrote even (16 rows, 12 columns).
+NOTE: DATA elapsed:
+  wall  0.00 seconds
+  cpu   0.00 seconds
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_even.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: Option TITLE changed to Check 5. Records per year of data.
+NOTE: PROC SQL 
+
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to  Check 6. Number of unique counties per year.
+NOTE: PROC SQL 
+
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to Check 7. Number of records by county.
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_mosaic_county_edvisityear.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_mosaic_incidentcountfire_edvisityear.spec.json
+NOTE: ODS plot written: freq_mosaic_incidentcountnonfire_edvisityear.spec.json
+NOTE: ODS plot written: freq_mosaic_incidentcountunknown_edvisityear.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: Option TITLE changed to Check 9. Variable Level Frequency - Age Groups.
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_mosaic_agegroup_edvisityear.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: Option TITLE changed to Check 10. Variable Level Frequency - Gender.
+NOTE: PROC FREQ
+NOTE: ODS plot written: freq_mosaic_sex_edvisityear.spec.json
+NOTE: PROC FREQ statement used.
+NOTE: Option TITLE changed to Check 11. Sum of visits by year and cause.
+NOTE: PROC SQL 
+
+NOTE: PROC SQL statement used.
+NOTE: Option TITLE changed to Check 12. Sum of Visits by County and Cause.
+NOTE: PROC TABULATE
+NOTE: PROC SORT data=Validation
+
+NOTE: Unlicensed mode - input limited to 100 observations.
+NOTE: Read 16 rows from Validation.
+NOTE: Wrote Validation (16 rows, 11 columns).
+NOTE: PROC SORT statement used.
+NOTE: PROC MEANS
+NOTE: Output dataset sum_by_sex has 4 observations and 7 variables.
+NOTE: PROC MEANS statement used.
+NOTE: PROC PRINT data=sum_by_sex
+
+NOTE: PROC PRINT completed: 4 observations printed, 7 variables
+NOTE: PROC SORT data=Validation
+
+NOTE: Unlicensed mode - input limited to 100 observations.
+NOTE: Read 16 rows from Validation.
+NOTE: Wrote Validation (16 rows, 11 columns).
+NOTE: PROC SORT statement used.
+NOTE: PROC MEANS
+NOTE: Output dataset sum_by_age has 4 observations and 7 variables.
+NOTE: PROC MEANS statement used.
+NOTE: PROC PRINT data=sum_by_age
+
+NOTE: PROC PRINT completed: 4 observations printed, 7 variables
+NOTE: ODS PDF: wrote report to /tmp/work/Colorado_COPoisoning_ED_Fall2019.pdf.
